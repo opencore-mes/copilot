@@ -1,0 +1,17 @@
+{
+  "name": "@opencore-mes/copilot",
+  "version": "0.1.0",
+  "description": "The OpenCore MES copilots (the designer's, the integration monitor's, AI Report's): one package, upgraded on a running server through the copilot-host contract",
+  "keywords": ["opencore-mes", "mes", "copilot", "ai"],
+  "homepage": "https://github.com/opencore-mes/copilot#readme",
+  "license": "Apache-2.0",
+  "author": "Resti Guay",
+  "repository": { "type": "git", "url": "git+https://github.com/opencore-mes/copilot.git" },
+  "bugs": { "url": "https://github.com/opencore-mes/copilot/issues" },
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "exports": { "./copilot.json": "./copilot.json", "./server": "./server/index.js", "./client": "./client/index.js" },
+  "files": ["copilot.json", "server/", "client/", "skills/", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test \"tests/*.test.mjs\"" },
+  "dependencies": { "@anthropic-ai/sdk": "^0.129.0" }
+}

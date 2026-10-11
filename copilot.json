@@ -1,0 +1,7 @@
+{
+  "name": "@opencore-mes/copilot",
+  "version": "0.1.0",
+  "host": "^1.0",
+  "roles": ["design", "monitor", "analyst"],
+  "client": { "entry": "client/index.js", "styles": ["client/copilot.css"] }
+}

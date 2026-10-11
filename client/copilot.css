@@ -1,0 +1,35 @@
+/* The copilot package's panels (copilot-host 1.0). Colours are the core's tokens (var(--…)), light and dark alike;
+   sides are logical (inline-start, inline-end), so a right-to-left page mirrors them. */
+
+.copilot { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.copilot-off { background: var(--accent-soft); padding: 10px; border-radius: 6px; font-size: 13px; }
+.copilot-log { display: flex; flex-direction: column; gap: 6px; overflow: auto; min-height: 0; border: 1px solid var(--line); border-radius: 8px; padding: 8px; background: var(--bg); }
+.cp-msg { padding: 8px 12px; border-radius: 10px; white-space: pre-wrap; font-size: 13px; line-height: 1.45; }
+.cp-msg.user { background: var(--accent); color: var(--on-fill); align-self: flex-end; max-width: 85%; }
+.cp-msg.assistant { background: var(--bg); border: 1px solid var(--line); max-width: 95%; white-space: normal; }
+.cp-msg.note { color: var(--warn); font-size: 12px; }
+.cp-msg .att-chips { margin-top: 6px; }
+.cp-tool { font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--muted); padding-inline-start: 8px; border-inline-start: 2px solid var(--line); }
+.cp-tool.ok { border-inline-start-color: var(--ok); }
+.cp-tool.bad { border-inline-start-color: var(--danger); color: var(--danger); }
+.cp-working { font-size: 12px; color: var(--accent); }
+.copilot-input { display: grid; gap: 6px; }
+.copilot-input textarea { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; background: var(--panel); color: var(--ink); }
+.copilot-buttons { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+/* The designer's: as tall as the tab allows, the transcript taking what is left. */
+.copilot.design { padding-top: 8px; height: min(70vh, 680px); min-height: 360px; }
+.copilot.design > .copilot-log { flex: 1; }
+
+/* The integration monitor's: a reading width; the fix it points at, to hand over. */
+.copilot.monitor { max-width: 920px; }
+.copilot.monitor > .copilot-log { max-height: calc(100vh - 380px); min-height: 160px; }
+.copilot.monitor .copilot-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 360px; }
+.im-focus { border: 1px solid var(--accent); background: var(--accent-soft); border-radius: var(--radius); padding: 10px 12px; display: grid; gap: 6px; justify-items: start; }
+.im-focus p { margin: 0; }
+
+/* AI Report's: a column beside the report, its buttons in a row of equals. */
+.copilot.analyst > .copilot-log { height: auto; min-height: 64px; max-height: min(44vh, 420px); }
+.copilot.analyst .cp-tool { font-family: inherit; }
+.copilot.analyst .copilot-buttons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.copilot.analyst .copilot-buttons .btn { white-space: nowrap; text-align: center; padding: 7px 8px; overflow: hidden; text-overflow: ellipsis; }
